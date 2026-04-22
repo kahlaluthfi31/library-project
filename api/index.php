@@ -1,18 +1,26 @@
 <?php
 
-// 1. Tentukan path folder sementara yang bisa ditulis di Vercel
+// 1. Tentukan path dasar folder sementara
 $storagePath = '/tmp/storage';
-$viewPath = $storagePath . '/framework/views';
 
-// 2. Buat folder-folder tersebut secara otomatis jika belum ada
-if (!is_dir($viewPath)) {
-    mkdir($viewPath, 0755, true);
+// 2. Daftar semua folder yang wajib ada agar Laravel tidak komplain
+$subDirs = [
+    $storagePath . '/framework/views',
+    $storagePath . '/framework/cache',
+    $storagePath . '/framework/sessions',
+    $storagePath . '/bootstrap/cache',
+];
+
+// 3. Buat folder secara rekursif
+foreach ($subDirs as $dir) {
+    if (!is_dir($dir)) {
+        mkdir($dir, 0755, true);
+    }
 }
 
-// 3. Paksa Laravel menggunakan folder /tmp untuk menulis Blade Views dan Cache
-// Ini yang akan memperbaiki error "Failed to open stream" di gambar kamu
-putenv("VIEW_COMPILED_PATH=$viewPath");
+// 4. Paksa Laravel menggunakan path ini melalui Environment Variable
 putenv("APP_STORAGE=$storagePath");
+putenv("BOOTSTRAP_CACHE_PATH=$storagePath/bootstrap/cache");
 
-// 4. Jalankan aplikasi
+// 5. Jalankan aplikasi
 require __DIR__ . '/../public/index.php';
