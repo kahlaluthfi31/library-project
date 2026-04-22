@@ -32,7 +32,7 @@
         <!-- Logo & Brand -->
         <div class="avatar ml-3 sm:ml-5">
             <div class="w-12 my-1 rounded-full">
-                <img src="/img/logoamarta.png" alt="Logo Amarta" />
+                <img src="{{ asset('img/logoamarta.png') }}" alt="Logo Amarta" />
             </div>
         </div>
     <a href="{{ route('landing-page') }}" class="navbar-brand-font px-3 sm:px-4 text-xl font-semibold tracking-normal">AmartaLib</a>

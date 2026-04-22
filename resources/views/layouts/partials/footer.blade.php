@@ -2,7 +2,7 @@
     <footer class="footer sm:footer-horizontal bg-hijau-dark transition-colors duration-300 text-white p-6 sm:p-12 w-full">
         <aside class="max-w-xs">
             <div class="flex items-center gap-2 mb-4">
-                <img src="/img/logoamarta.png" alt="" class="rounded-full w-12">
+                <img src="{{ asset('img/logoamarta.png') }}" alt="" class="rounded-full w-12">
                 <h2 class="text-2xl font-semibold">{{ $siteSettings['footer_title'] ?? 'Amarta K-One Ciamis' }}</h2>
             </div>
             <p class="text-sm sm:text-base break-words whitespace-normal">

@@ -98,7 +98,7 @@
                 </div>
 
                 <div class="flex justify-center lg:justify-end">
-                    <img src="{{ $siteSettings['hero_image'] ?? '/img/gambar-utama-header.png' }}"
+                    <img src="{{ $siteSettings['hero_image'] ?? asset('img/gambar-utama-header.png') }}"
                         alt="Ilustrasi utama perpustakaan" class="w-full max-w-[460px] h-auto object-contain"
                         onerror="this.src='/img/gambar-utama-header.png'">
                 </div>
@@ -123,7 +123,7 @@
                         <div class="slider-item flex-shrink-0">
                             <div
                                 class="group m-4 relative overflow-hidden rounded-xl shadow-lg h-80 transition-all duration-500 hover:shadow-xl">
-                                <img src="{{ $explore->image_url ?: '/img/gambar-utama-header.png' }}"
+                                <img src="{{ $explore->image_url ?: asset('img/gambar-utama-header.png') }}"
                                     onerror="this.src='/img/gambar-utama-header.png'"
                                     class="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:blur-sm">
                                 <div
@@ -282,7 +282,7 @@
                 </div>
 
                 <div class="flex justify-center lg:justify-end">
-                    <img src="{{ $siteSettings['section_survei_image'] ?? '/img/responsive_layanan.png' }}"
+                    <img src="{{ $siteSettings['section_survei_image'] ?? asset('img/responsive_layanan.png') }}"
                         alt="Ilustrasi layanan survei responsif" onerror="this.src='/img/responsive_layanan.png'"
                         class="w-full max-w-[620px] h-auto object-contain">
                 </div>
@@ -361,7 +361,7 @@
             <div class="flex flex-wrap justify-center gap-8 items-center">
                 @forelse ($partners as $partner)
                     <div class="flex justify-center px-12">
-                        <img src="{{ $partner->logo_url ?: '/img/logoamarta.png' }}" alt="{{ $partner->name }}"
+                        <img src="{{ $partner->logo_url ?: asset('img/logoamarta.png') }}" alt="{{ $partner->name }}"
                             onerror="this.src='/img/logoamarta.png'"
                             class="h-32 object-contain grayscale hover:grayscale-0 transition-all duration-300">
                     </div>

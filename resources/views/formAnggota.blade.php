@@ -62,7 +62,7 @@
                         <!-- Logo and Header -->
                         <div class="text-center mb-8">
                             <div class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-full mb-4 shadow-lg">
-                                <img src="/img/logoamarta.png" alt="Logo Amarta" class="w-10 h-10">
+                                <img src="{{ asset('img/logoamarta.png') }}" alt="Logo Amarta" class="w-10 h-10">
                             </div>
                             <h1 class="text-3xl font-bold text-hijau-light mb-2">Daftar Keanggotaan</h1>
                             <p class="text-gray-600">Bergabung dengan perpustakaan digital kami</p>
