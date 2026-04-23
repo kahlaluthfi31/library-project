@@ -51,7 +51,7 @@
     <!-- Navigation -->
     @include('layouts/partials/navbar')
     <!-- Hero Section -->
-    <div class="relative bg-white h-screen text-white overflow-hidden mt-[67px]">
+    <div class="relative bg-white min-h-[70vh] md:h-screen text-white overflow-hidden mt-[67px]">
         <div class="absolute inset-0">
             <!-- Gambar background -->
             <img src="https://plus.unsplash.com/premium_photo-1661905921900-a8b49e65feeb?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -66,10 +66,10 @@
         </div>
 
         <!-- Konten teks -->
-        <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
+    <div class="relative z-10 flex flex-col justify-center items-center min-h-[70vh] md:h-full text-center px-4 pt-16 sm:pt-20 md:pt-0">
             <h1 class="text-4xl md:text-5xl text-white font-bold leading-tight mb-4">Profil Perpustakaan</h1>
             <p class="text-lg text-white mb-8 max-w-2xl">Jelajahi kami lebih jauh - Amarta K-One Ciamis</p>
-            <a href="#tentang" class="text-gray-800 px-6 py-3 rounded-lg font-medium shadow-lg bg-hijau-light hover:bg-hijau-light hover:text-white transition duration-300 transform hover:-translate-y-1">
+            <a href="#tentang" class="px-6 py-3 rounded-lg font-medium shadow-lg bg-hijau-light hover:bg-hijau-light text-white transition duration-300 transform hover:-translate-y-1">
                 Mulai Jelajahi <i class="fas fa-arrow-down ml-2"></i></a>
         </div>
 
@@ -163,7 +163,7 @@
                 $misiPoints = $legacyMisiPoints;
             }
         @endphp
-        <section id="visi" class="mb-4 py-20 bg-gradient-to-r from-blue-50 to-blue-50 rounded-3xl px-8 section-animate">
+    <section id="visi" class="mb-4 py-14 sm:py-20 bg-gradient-to-r from-blue-50 to-blue-50 rounded-3xl px-4 sm:px-6 lg:px-8 section-animate">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold leading-tight bg-gradient-to-r from-hijau-light to-biru-light mb-4 bg-clip-text text-transparent">
@@ -173,7 +173,7 @@
                 <div class="grid lg:grid-cols-2 gap-8">
                     <!-- Visi Card -->
                     <div class="relative group">
-                        <div class="relative h-full bg-white p-8 rounded-2xl shadow-sm card-hover overflow-hidden border border-gray-100">
+                        <div class="relative h-full bg-white p-5 sm:p-8 rounded-2xl shadow-sm card-hover overflow-hidden border border-gray-100">
                             <div class="absolute -right-10 -top-10 text-blue-50 text-7xl z-0">
                                 <i class="fas {{ $visiIcon ?: 'fa-eye' }}"></i>
                             </div>
@@ -202,7 +202,7 @@
 
                     <!-- Misi Card -->
                     <div class="relative group">
-                        <div class="relative h-full bg-white p-8 rounded-2xl shadow-sm card-hover overflow-hidden border border-gray-100">
+                        <div class="relative h-full bg-white p-5 sm:p-8 rounded-2xl shadow-sm card-hover overflow-hidden border border-gray-100">
                             <div class="absolute -right-10 -top-10 text-blue-50 text-7xl z-0">
                                 <i class="fas {{ $misiIcon ?: 'fa-bullseye' }}"></i>
                             </div>
@@ -242,7 +242,7 @@
         @if (!empty($profileContent['struktur']))
             {!! $profileContent['struktur'] !!}
         @else
-        <section class="pb-16 px-6 bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <section class="pb-16 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-white to-blue-50">
             <div class="max-w-7xl mx-auto">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
@@ -267,7 +267,7 @@
                     <!-- Level 1 - Top Management -->
                     <div class="flex justify-center mb-16 relative z-10">
                         <div class="group">
-                            <div class="relative w-48 h-60 mx-auto rounded-2xl overflow-hidden shadow-xl transition-all duration-500 transform group-hover:-translate-y-3 group-hover:shadow-2xl">
+                            <div class="relative w-44 sm:w-48 h-56 sm:h-60 mx-auto rounded-2xl overflow-hidden shadow-xl transition-all duration-500 transform group-hover:-translate-y-3 group-hover:shadow-2xl">
                                 <img src="{{ $ps('profile_struktur_ketua_image', 'https://media.istockphoto.com/id/1348560814/id/foto/wanita-bisnis-percaya-diri-dalam-kacamata-melihat-kamera.jpg?s=1024x1024&w=is&k=20&c=-oCccOZT4hvJIvZwela7_pkJ-ntxll9z2PmDlAPq1Wo=') }}"
                                     alt="Ketua"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -281,10 +281,10 @@
                     </div>
 
                     <!-- Level 2 - Middle Management -->
-                    <div class="flex justify-center gap-12 mb-16 relative z-10">
+                    <div class="flex justify-center gap-8 sm:gap-12 mb-16 relative z-10 flex-wrap">
                         <!-- Wakil Ketua -->
                         <div class="group">
-                            <div class="relative w-48 h-60 mx-auto rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform group-hover:-translate-y-3 group-hover:shadow-xl">
+                            <div class="relative w-44 sm:w-48 h-56 sm:h-60 mx-auto rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform group-hover:-translate-y-3 group-hover:shadow-xl">
                                 <img src="{{ $ps('profile_struktur_wakil_image', 'https://media.istockphoto.com/id/1348560814/id/foto/wanita-bisnis-percaya-diri-dalam-kacamata-melihat-kamera.jpg?s=1024x1024&w=is&k=20&c=-oCccOZT4hvJIvZwela7_pkJ-ntxll9z2PmDlAPq1Wo=') }}"
                                     alt="Wakil Ketua"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -298,7 +298,7 @@
 
                         <!-- Sekretaris -->
                         <div class="group">
-                            <div class="relative w-48 h-60 mx-auto rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform group-hover:-translate-y-3 group-hover:shadow-xl">
+                            <div class="relative w-44 sm:w-48 h-56 sm:h-60 mx-auto rounded-xl overflow-hidden shadow-lg transition-all duration-500 transform group-hover:-translate-y-3 group-hover:shadow-xl">
                                 <img src="{{ $ps('profile_struktur_sekretaris_image', 'https://media.istockphoto.com/id/1348560814/id/foto/wanita-bisnis-percaya-diri-dalam-kacamata-melihat-kamera.jpg?s=1024x1024&w=is&k=20&c=-oCccOZT4hvJIvZwela7_pkJ-ntxll9z2PmDlAPq1Wo=') }}"
                                     alt="Sekretaris"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -312,10 +312,10 @@
                     </div>
 
                     <!-- Level 3 - Staff -->
-                    <div class="flex justify-center gap-8 flex-wrap relative z-10">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 relative z-10 max-w-4xl mx-auto">
                         <!-- Bendahara -->
                         <div class="group">
-                            <div class="relative w-48 h-60 mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-lg">
+                            <div class="relative w-44 sm:w-48 h-56 sm:h-60 mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-lg">
                                 <img src="{{ $ps('profile_struktur_staff_1_image', 'https://media.istockphoto.com/id/1348560814/id/foto/wanita-bisnis-percaya-diri-dalam-kacamata-melihat-kamera.jpg?s=1024x1024&w=is&k=20&c=-oCccOZT4hvJIvZwela7_pkJ-ntxll9z2PmDlAPq1Wo=') }}"
                                     alt="Bendahara"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -329,7 +329,7 @@
 
                         <!-- Humas -->
                         <div class="group">
-                            <div class="relative w-48 h-60 mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-lg">
+                            <div class="relative w-44 sm:w-48 h-56 sm:h-60 mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-lg">
                                 <img src="{{ $ps('profile_struktur_staff_2_image', 'https://media.istockphoto.com/id/1348560814/id/foto/wanita-bisnis-percaya-diri-dalam-kacamata-melihat-kamera.jpg?s=1024x1024&w=is&k=20&c=-oCccOZT4hvJIvZwela7_pkJ-ntxll9z2PmDlAPq1Wo=') }}"
                                     alt="Humas"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -343,7 +343,7 @@
 
                         <!-- Koordinator Divisi -->
                         <div class="group">
-                            <div class="relative w-48 h-60 mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-lg">
+                            <div class="relative w-44 sm:w-48 h-56 sm:h-60 mx-auto rounded-lg overflow-hidden shadow-md transition-all duration-500 transform group-hover:-translate-y-2 group-hover:shadow-lg">
                                 <img src="{{ $ps('profile_struktur_staff_3_image', 'https://media.istockphoto.com/id/1348560814/id/foto/wanita-bisnis-percaya-diri-dalam-kacamata-melihat-kamera.jpg?s=1024x1024&w=is&k=20&c=-oCccOZT4hvJIvZwela7_pkJ-ntxll9z2PmDlAPq1Wo=') }}"
                                     alt="Koordinator"
                                     class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -380,46 +380,52 @@
                 </div>
 
                 <!-- Staff Grid -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                     <!-- Staff 1 -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="group relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 max-w-[220px] w-full mx-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10"></div>
                         <img src="{{ $ps('profile_staff_1_image', 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80') }}"
                             alt="Staff 1"
-                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                            class="w-full h-72 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div class="absolute bottom-0 left-0 right-0 z-20 p-4 text-white">
-                            <h3 class="text-xl font-bold mb-1">{{ $ps('profile_staff_1_name', 'Dr. John Doe') }}</h3>
-                            <p class="text-blue-300 text-sm font-medium mb-2">{{ $ps('profile_staff_1_position', 'Kepala Perpustakaan') }}</p>
-                            <p class="text-gray-200 text-xs">{{ $ps('profile_staff_1_description', 'Memimpin seluruh operasional perpustakaan sejak 2015.') }}</p>
+                        <div class="absolute bottom-0 left-0 right-0 z-20 p-3 text-white">
+                            <h3 class="text-base font-bold mb-1 leading-tight">{{ $ps('profile_staff_1_name', 'Dr. John Doe') }}</h3>
+                            <p class="text-blue-300 text-xs font-medium mb-1">{{ $ps('profile_staff_1_position', 'Kepala Perpustakaan') }}</p>
+                            <p class="text-gray-200 text-xs leading-relaxed md:max-h-0 md:opacity-0 md:overflow-hidden md:group-hover:max-h-20 md:group-hover:opacity-100 md:transition-all md:duration-300">
+                                {{ $ps('profile_staff_1_description', 'Memimpin seluruh operasional perpustakaan sejak 2015.') }}
+                            </p>
                         </div>
                     </div>
 
                     <!-- Staff 2 -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="group relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 max-w-[220px] w-full mx-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10"></div>
                         <img src="{{ $ps('profile_staff_2_image', 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80') }}"
                             alt="Staff 2"
-                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                            class="w-full h-72 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div class="absolute bottom-0 left-0 right-0 z-20 p-4 text-white">
-                            <h3 class="text-xl font-bold mb-1">{{ $ps('profile_staff_2_name', 'Jane Smith') }}</h3>
-                            <p class="text-blue-300 text-sm font-medium mb-2">{{ $ps('profile_staff_2_position', 'Pustakawan') }}</p>
-                            <p class="text-gray-200 text-xs">{{ $ps('profile_staff_2_description', 'Bertanggung jawab atas pengembangan koleksi.') }}</p>
+                        <div class="absolute bottom-0 left-0 right-0 z-20 p-3 text-white">
+                            <h3 class="text-base font-bold mb-1 leading-tight">{{ $ps('profile_staff_2_name', 'Jane Smith') }}</h3>
+                            <p class="text-blue-300 text-xs font-medium mb-1">{{ $ps('profile_staff_2_position', 'Pustakawan') }}</p>
+                            <p class="text-gray-200 text-xs leading-relaxed md:max-h-0 md:opacity-0 md:overflow-hidden md:group-hover:max-h-20 md:group-hover:opacity-100 md:transition-all md:duration-300">
+                                {{ $ps('profile_staff_2_description', 'Bertanggung jawab atas pengembangan koleksi.') }}
+                            </p>
                         </div>
                     </div>
 
                     <!-- Staff 3 -->
-                    <div class="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                    <div class="group relative overflow-hidden rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-1 max-w-[220px] w-full mx-auto">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent z-10"></div>
                         <img src="{{ $ps('profile_staff_3_image', 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80') }}"
                             alt="Staff 3"
-                            class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-105">
+                            class="w-full h-72 sm:h-80 object-cover transition-transform duration-500 group-hover:scale-105">
 
-                        <div class="absolute bottom-0 left-0 right-0 z-20 p-4 text-white">
-                            <h3 class="text-xl font-bold mb-1">{{ $ps('profile_staff_3_name', 'Robert Johnson') }}</h3>
-                            <p class="text-blue-300 text-sm font-medium mb-2">{{ $ps('profile_staff_3_position', 'Staff Layanan') }}</p>
-                            <p class="text-gray-200 text-xs">{{ $ps('profile_staff_3_description', 'Melayani peminjaman dan pengembalian buku.') }}</p>
+                        <div class="absolute bottom-0 left-0 right-0 z-20 p-3 text-white">
+                            <h3 class="text-base font-bold mb-1 leading-tight">{{ $ps('profile_staff_3_name', 'Robert Johnson') }}</h3>
+                            <p class="text-blue-300 text-xs font-medium mb-1">{{ $ps('profile_staff_3_position', 'Staff Layanan') }}</p>
+                            <p class="text-gray-200 text-xs leading-relaxed md:max-h-0 md:opacity-0 md:overflow-hidden md:group-hover:max-h-20 md:group-hover:opacity-100 md:transition-all md:duration-300">
+                                {{ $ps('profile_staff_3_description', 'Melayani peminjaman dan pengembalian buku.') }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -431,8 +437,8 @@
         @if (!empty($profileContent['fasilitas']))
             {!! $profileContent['fasilitas'] !!}
         @else
-        <section id="fasilitas" class="py-20 bg-gradient-to-br from-gray-50 to-white">
-            <div class="max-w-7xl mx-auto px-6">
+        <section id="fasilitas" class="py-16 sm:py-20 bg-gradient-to-br from-gray-50 to-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6">
                 <!-- Section Header -->
                 <div class="text-center mb-16">
                     <span class="inline-block px-4 py-2 mb-4 text-sm font-medium rounded-full bg-blue-100 text-hijau-dark shadow-sm">
@@ -706,7 +712,7 @@
     @include('layouts/partials/footer')
 
     <!-- Back to Top Button -->
-    <button id="backToTop" class="fixed w-12 bottom-8 right-8 bg-blue-600 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all hover:bg-blue-700">
+    <button id="backToTop" class="fixed w-10 h-10 sm:w-12 sm:h-12 bottom-20 sm:bottom-8 right-3 sm:right-8 bg-blue-600 text-white rounded-full shadow-lg opacity-0 invisible transition-all hover:bg-blue-700 z-50 flex items-center justify-center">
         <i class="fas fa-arrow-up"></i>
     </button>
 

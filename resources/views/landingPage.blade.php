@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>AmartaLib</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -67,40 +67,47 @@
     <!-- Hero Utama -->
     <section class="pt-20 pb-12 px-4 sm:px-6">
         <div class="max-w-screen-xl mx-auto bg-white">
-            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 px-8 sm:px-12 py-12 sm:py-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-8 lg:gap-10 px-4 sm:px-8 lg:px-12 py-10 sm:py-16">
                 <div class="max-w-xl">
                     @php
-                        $heroTitle = e(
-                            $siteSettings['hero_title'] ?? "Temukan Dunia\nPengetahuan Tanpa\nBatas di Genggaman Mu.",
-                        );
-                        $heroTitle = str_replace(
-                            'Batas di Genggaman Mu.',
-                            'Batas&nbsp;di&nbsp;Genggaman&nbsp;Mu.',
-                            $heroTitle,
-                        );
+                        $heroTitlePlain = trim(preg_replace('/\s+/u', ' ', str_replace(["\r\n", "\n", "\r"], ' ', (string) ($siteSettings['hero_title'] ?? 'Temukan Dunia Pengetahuan Tanpa Batas di Genggaman Mu.'))));
+
+                        $desktopHeroTitle = $heroTitlePlain;
+                        $mobileHeroTitle = $heroTitlePlain;
+
+                        if (str_contains($heroTitlePlain, 'Temukan Dunia') && str_contains($heroTitlePlain, 'Pengetahuan Tanpa') && str_contains($heroTitlePlain, 'Batas di Genggaman Mu.')) {
+                            $desktopHeroTitle = "Temukan Dunia\nPengetahuan Tanpa\nBatas di Genggaman Mu.";
+                            $mobileHeroTitle = "Temukan Dunia\nPengetahuan\nTanpa Batas di\nGenggaman Mu.";
+                        }
+
+                        $desktopHeroTitleHtml = nl2br(str_replace('Batas di Genggaman Mu.', 'Batas&nbsp;di&nbsp;Genggaman&nbsp;Mu.', e($desktopHeroTitle)));
+                        $mobileHeroTitleHtml = nl2br(str_replace('Genggaman Mu.', 'Genggaman&nbsp;Mu.', e($mobileHeroTitle)));
                     @endphp
-                    <h1 class="text-4xl sm:text-5xl font-bold text-[#031C62] leading-[1.35] mb-8">
-                        {!! nl2br($heroTitle) !!}
+                    <h1 class="hidden sm:block text-4xl lg:text-5xl font-bold text-[#031C62] leading-[1.35] mb-6 sm:mb-8">
+                        {!! $desktopHeroTitleHtml !!}
+                    </h1>
+                    <h1 class="sm:hidden text-3xl font-bold text-[#031C62] leading-[1.35] mb-6 sm:mb-8">
+                        {!! $mobileHeroTitleHtml !!}
                     </h1>
                     <p class="text-[#1E3A7A] text-lg leading-relaxed max-w-lg mb-8">
                         {{ $siteSettings['hero_description'] ?? 'Perpustakaan Amarta menyediakan layanan informasi, koleksi cetak dan digital, serta fasilitas pembelajaran untuk menunjang kegiatan akademik dan pengembangan diri.' }}
                     </p>
-                    <div class="flex items-center gap-4">
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
                         <a href="/profil-perpustakaan"
-                            class="inline-flex items-center justify-center px-7 py-3 rounded-md bg-[#031C62] text-white font-medium hover:bg-[#021547] transition-colors duration-300">
+                            class="inline-flex w-full sm:w-auto items-center justify-center px-7 py-3 rounded-md bg-[#031C62] text-white font-medium hover:bg-[#021547] transition-colors duration-300">
                             Jelajahi
                         </a>
                         <a href="/daftar-keanggotaan"
-                            class="inline-flex items-center justify-center px-7 py-3 rounded-md border border-[#031C62] text-[#031C62] font-medium hover:bg-[#031C62] hover:text-white transition-colors duration-300">
+                            class="inline-flex w-full sm:w-auto items-center justify-center px-7 py-3 rounded-md border border-[#031C62] text-[#031C62] font-medium hover:bg-[#031C62] hover:text-white transition-colors duration-300">
                             Daftar Keanggotaan
                         </a>
                     </div>
                 </div>
 
-                <div class="flex justify-center lg:justify-end">
+                <div class="hidden sm:flex justify-center lg:justify-end">
                     <img src="{{ $siteSettings['hero_image'] ?? asset('img/gambar-utama-header.png') }}"
                         alt="Ilustrasi utama perpustakaan" class="w-full max-w-[460px] h-auto object-contain"
-                        onerror="this.src='/img/gambar-utama-header.png'">
+                        onerror="this.src='{{ asset('img/gambar-utama-header.png') }}'">
                 </div>
             </div>
         </div>
@@ -210,8 +217,8 @@
 
     <!-- berita -->
     <section class="py-16 bg-white">
-        <div class="max-w-screen-xl mx-auto px-6">
-            <div class="flex justify-between items-center mb-8">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6">
+            <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-8">
                 <div>
                     <h2 class="text-3xl font-bold md:text-4xl text-hijau-light mb-4">
                         {{ $siteSettings['section_berita_title'] ?? 'Berita Terbaru' }}</h2>
@@ -249,8 +256,8 @@
                             <div class="flex gap-3 p-3 rounded-lg hover:bg-gray-50 transition cursor-pointer">
                                 <img src="{{ $news->image_url }}" alt="{{ $news->title }}"
                                     class="w-16 h-16 rounded-md object-cover flex-shrink-0">
-                                <div>
-                                    <h4 class="font-semibold text-gray-800 text-sm leading-snug truncate w-64">
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="font-semibold text-gray-800 text-sm leading-snug line-clamp-2">
                                         {{ $news->title }}</h4>
                                     <p class="text-xs text-gray-500 mt-1">
                                         {{ $news->published_at?->translatedFormat('d F Y') ?: '-' }}</p>
@@ -267,7 +274,7 @@
 
     <!-- Survei layanan -->
     <section class="bg-[#fff] overflow-hidden">
-        <div class="max-w-screen-xl mx-auto px-6 md:px-10 lg:px-14">
+    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 md:px-10 lg:px-14">
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-16">
                 <div class="text-center lg:text-left max-w-xl">
                     <h2 class="text-3xl font-bold md:text-4xl text-hijau-light mb-5">
@@ -358,9 +365,9 @@
                 {{ $siteSettings['section_partner_title'] ?? 'Partner' }}</h3>
             <p class="text-hijau-dark text-center ml-auto mb-8">
                 {{ $siteSettings['section_partner_description'] ?? 'Terimakasih atas dukungan nya' }}</p>
-            <div class="flex flex-wrap justify-center gap-8 items-center">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 items-center">
                 @forelse ($partners as $partner)
-                    <div class="flex justify-center px-12">
+                    <div class="flex justify-center px-2 sm:px-4 md:px-6">
                         <img src="{{ $partner->logo_url ?: asset('img/logoamarta.png') }}" alt="{{ $partner->name }}"
                             onerror="this.src='/img/logoamarta.png'"
                             class="h-32 object-contain grayscale hover:grayscale-0 transition-all duration-300">
@@ -374,9 +381,9 @@
 
     <!-- feedback/contact -->
     <section id="kontak" class="text-gray-600 body-font relative">
-        <div class="container max-w-screen-xl px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
+    <div class="container max-w-screen-xl px-4 sm:px-5 py-16 sm:py-24 mx-auto flex flex-wrap lg:flex-nowrap">
             <div
-                class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+        class="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-4 sm:p-8 lg:p-10 flex items-end justify-start relative">
                 <iframe width="100%" height="100%" class="absolute inset-0" frameborder="0" title="map"
                     marginheight="0" marginwidth="0" scrolling="no"
                     src="{{ $siteSettings['contact_map_url'] ?? 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2259.7656427876145!2d108.32579047540595!3d-7.323217342945447!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6f5eba1b06f52f%3A0xaf882382d9de1508!2sPublic%20Vocational%20High%20School%201of%20Ciamis!5e1!3m2!1sen!2sid!4v1752055801083!5m2!1sen!2sid' }}"

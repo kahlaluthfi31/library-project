@@ -1,4 +1,4 @@
-<div class="navbar navbar-font w-full px-8 sm:px-12 shadow-sm bg-hijau-light text-white transition-colors duration-300 fixed top-0 left-0 right-0 z-50">
+<div class="navbar navbar-font w-full px-3 sm:px-6 lg:px-12 shadow-sm bg-hijau-light text-white transition-colors duration-300 fixed top-0 left-0 right-0 z-50">
     <!-- Navbar Start (Logo & Hamburger) -->
     <div class="navbar-start">
         <!-- Hamburger Menu (Mobile) -->
@@ -14,12 +14,12 @@
                     <details>
                         <summary>Profil</summary>
                         <ul>
-                            <li><a href="/profil-perpustakaan#">Tentang Perpustakaan</a></li>
-                            <li><a href="/profil-perpustakaan#">Visi & Misi</a></li>
-                            <li><a href="/profil-perpustakaan#">Struktur Organisasi</a></li>
-                            <li><a href="/profil-perpustakaan#">Staff & Pustakawan</a></li>
-                            <li><a href="/profil-perpustakaan#">Fasilitas</a></li>
-                            <li><a href="/profil-perpustakaan#">Peraturan & Tata Tertib</a></li>
+                            <li><a href="/profil-perpustakaan#tentang">Tentang Perpustakaan</a></li>
+                            <li><a href="/profil-perpustakaan#visi">Visi & Misi</a></li>
+                            <li><a href="/profil-perpustakaan#struktur">Struktur Organisasi</a></li>
+                            <li><a href="/profil-perpustakaan#staff">Staff & Pustakawan</a></li>
+                            <li><a href="/profil-perpustakaan#fasilitas">Fasilitas</a></li>
+                            <li><a href="/profil-perpustakaan#peraturan">Peraturan & Tata Tertib</a></li>
                         </ul>
                     </details>
                 </li>
@@ -35,7 +35,7 @@
                 <img src="{{ asset('img/logoamarta.png') }}" alt="Logo Amarta" />
             </div>
         </div>
-    <a href="{{ route('landing-page') }}" class="navbar-brand-font px-3 sm:px-4 text-xl font-semibold tracking-normal">AmartaLib</a>
+    <a href="{{ route('landing-page') }}" class="navbar-brand-font px-2 sm:px-4 text-lg sm:text-xl font-semibold tracking-normal">AmartaLib</a>
     </div>
 
     <!-- Navbar Center (Desktop Menu) -->
